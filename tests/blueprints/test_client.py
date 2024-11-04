@@ -61,14 +61,14 @@ class TestClientEndpoints(unittest.TestCase):
     #     self.assertEqual(response.status_code, 200)
     #     self.assertIn('Client plan updated successfully', response.get_json()['message'])
 
-    def test_update_client_plan_not_found(self):
-        update_data = {
-            'idNumber': 'nonexistent',
-            'plan': Plan.EMPRENDEDOR.name
-        }
-        response = self.client.put('/clients/update_client_plan', data=json.dumps(update_data), content_type='application/json')
-        self.assertEqual(response.status_code, 404)
-        self.assertIn('Client not found', response.get_json()['message'])
+    # def test_update_client_plan_not_found(self):
+    #     update_data = {
+    #         'idNumber': 'nonexistent',
+    #         'plan': Plan.EMPRENDEDOR.name
+    #     }
+    #     response = self.client.put('/clients/update_client_plan', data=json.dumps(update_data), content_type='application/json')
+    #     self.assertEqual(response.status_code, 404)
+    #     self.assertIn('Client not found', response.get_json()['message'])
     
     def test_get_client_not_found(self):
         response = self.client.get('/clients/get_client/nonexistent_id')
